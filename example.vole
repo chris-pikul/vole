@@ -1,0 +1,32 @@
+/**
+ * Example file describing what Vole syntax should look like
+ */
+
+#define PI = 3.1415926
+
+main()
+    log.Println("Welcome to Vole")
+
+    // Check if we are in development mode
+    #if dev
+        log.Println("Running in development mode")
+    #else
+        log.Println("Running in production mode")
+
+    log.Println( makeGreeting("Chris") )
+
+makeGreeting(name string) string
+    `Hello ${name}`
+
+Example struct
+    First string
+    Second int
+        json: second omitempty
+        form: secondValue
+    
+    priv byte
+        +Getter
+    
+    +StaticJSON
+    +Stringer
+        @.First + " " + @.Second
